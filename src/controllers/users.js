@@ -50,7 +50,6 @@ export const updateMyUser = async (request, reply) => {
     subjects: request.payload.subjects,
     area: request.payload.area,
     image: request.payload.image,
-
   };
 
   // If request contains an image, resize it to max 512x512 pixels
