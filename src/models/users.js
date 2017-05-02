@@ -22,12 +22,6 @@ export const dbGetOAuth2User = oauth2Id => (
     .where({ oauth2Id })
 );
 
-export const dbUpdateMyUser = (id, fields) => (
-  knex('users')
-    .update({ ...fields })
-    .where({ id })
-);
-
 export const dbUpdateUser = (id, fields) => (
   knex('users')
     .update({ ...fields })

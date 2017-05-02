@@ -36,6 +36,10 @@ export const delUser = (request, reply) => {
 
 export const updateMyUser = async (request, reply) => {
 
+  if(request.payload.image) {
+    request.payload.image = JSON.stringify(request.payload.image);
+  }
+
   const fields = {
     name: request.payload.name,
     email: request.payload.email,
@@ -58,7 +62,7 @@ export const updateMyUser = async (request, reply) => {
     await resizeImage(buf).then(resized => (fields.image = resized));
   }
 
-  return dbUpdateMyUser(request.pre.user.id, fields).then(reply);
+  return dbUpdateUser(request.pre.user.id, fields).then(reply);
 };
 
 export const updateUser = async (request, reply) => {
